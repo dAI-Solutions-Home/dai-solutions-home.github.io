@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== PAGE TITLE & SEARCH/SHARE DESCRIPTION (edit these) ===== -->
+  <title>dAI Solutions | AI Process Consulting for Small Businesses</title>
+  <meta name="description" content="dAI Solutions helps small businesses turn inefficient processes into streamlined, AI-powered systems that save time, cut costs, and drive growth." />
+  <meta property="og:title" content="dAI Solutions" />
+  <meta property="og:description" content="AI process consulting that helps small businesses work smarter and spend less." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="opengraph.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== COLORS (change these to restyle the whole site) ===== */
+    :root{
+      --navy:#050d1a; --navy2:#0a1628;
+      --teal:#3b82f6; --blue:#2563eb; --blue2:#60a5fa;
+      --text:#e8f0ff; --muted:#7a92b8;
+      --card:rgba(255,255,255,.04); --border:rgba(255,255,255,.08);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:var(--navy);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+    a.plain{color:inherit;text-decoration:none}
+    a.plain:hover{text-decoration:underline}
+
+    /* ----- Top navigation ----- */
+    nav{display:flex;align-items:center;justify-content:space-between;padding:20px 60px;border-bottom:1px solid var(--border);background:#050d1aeb;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);position:sticky;top:0;z-index:100}
+    .logo{display:flex;align-items:center;gap:10px;min-width:260px}
+    .brand-logo-img{height:48px;width:auto;display:block;object-fit:contain}
+    .nav-links{display:flex;gap:36px;list-style:none}
+    .nav-links a{text-decoration:none;color:var(--muted);font-size:.88rem;font-weight:500;letter-spacing:.04em;transition:color .2s;cursor:pointer}
+    .nav-links a:hover,.nav-links a.active{color:var(--text)}
+    .nav-links a.active{border-bottom:2px solid var(--teal);padding-bottom:2px;color:var(--teal)}
+
+    /* ----- Buttons ----- */
+    .btn-primary{background:linear-gradient(135deg,var(--teal),var(--blue));color:#fff;border:none;padding:10px 22px;border-radius:6px;font-family:Inter,sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:opacity .2s,transform .2s;text-decoration:none;display:inline-block}
+    .btn-primary:hover{opacity:.88;transform:translateY(-1px)}
+    .btn-primary svg{margin-left:6px;vertical-align:-1px}
+
+    /* ----- Business card + value grid ----- */
+    .top-section{display:grid;grid-template-columns:1fr 1fr;min-height:320px;border-bottom:1px solid var(--border)}
+    .card-panel{background:linear-gradient(135deg,#060e1e,#0d1f3c);display:flex;align-items:center;justify-content:center;padding:48px;position:relative;overflow:hidden;border-right:1px solid var(--border)}
+    .card-panel:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(0,200,180,.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(30,127,255,.07) 0%,transparent 60%)}
+    .biz-card{position:relative;width:100%;max-width:380px;background:linear-gradient(140deg,#0b1a33,#061020);border-radius:18px;padding:32px 32px 28px;box-shadow:0 0 0 1px #00c8b42e,0 25px 60px #000000b3,inset 0 1px #ffffff0f;animation:float 5s ease-in-out infinite}
+    @keyframes float{0%,to{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .biz-card-top{display:flex;justify-content:flex-start;align-items:center;margin-bottom:24px}
+    .biz-logo-img{width:220px;height:auto;display:block;object-fit:contain}
+    .biz-name{font-weight:700;font-size:1.5rem;margin-bottom:4px}
+    .biz-title{font-size:.72rem;color:var(--teal);font-weight:500;letter-spacing:.06em;margin-bottom:18px}
+    .biz-contacts{display:flex;flex-direction:column;gap:7px}
+    .biz-contact-row{display:flex;align-items:center;gap:9px;font-size:.75rem;color:var(--muted)}
+    .biz-contact-row svg{width:13px;height:13px;flex-shrink:0;stroke:var(--teal)}
+    .value-panel{display:grid;grid-template-rows:1fr 1fr;grid-template-columns:1fr 1fr;gap:1px;background-color:var(--border)}
+    .value-item{background:var(--navy2);padding:32px 36px;display:flex;align-items:flex-start;gap:18px;transition:background .2s}
+    .value-item:hover{background:#0d1a2d}
+    .value-icon{width:42px;height:42px;background:#00c8b41a;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid rgba(0,200,180,.2)}
+    .value-icon svg{width:20px;height:20px;stroke:var(--teal)}
+    .value-title{font-weight:700;font-size:.85rem;letter-spacing:.025em;margin-bottom:5px}
+    .value-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
+
+    /* ----- Hero ----- */
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:80px 60px;position:relative;overflow:hidden}
+    .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(30,127,255,.08) 0%,transparent 55%),radial-gradient(ellipse at 20% 80%,rgba(0,200,180,.06) 0%,transparent 50%);pointer-events:none}
+    .hero-waves{position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:.3}
+    .hero-waves svg{width:100%;height:100%}
+    .hero-content{position:relative;z-index:2}
+    .hero-eyebrow{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:18px}
+    h1{font-size:clamp(2.4rem,4vw,3.4rem);font-weight:800;line-height:1.08;margin-bottom:24px;letter-spacing:-.055em}
+    h1 .accent{color:var(--teal)}
+    .hero-desc{font-size:1rem;color:var(--muted);line-height:1.7;max-width:460px;margin-bottom:36px}
+    .hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+    .hero-visual{position:relative;z-index:2}
+
+    /* ----- Dashboard graphic ----- */
+    .dashboard-frame{background:linear-gradient(145deg,#0c1d38,#071326);border-radius:16px;border:1px solid rgba(255,255,255,.1);overflow:hidden;box-shadow:0 40px 100px #0009,0 0 0 1px #00c8b41f}
+    .dash-bar{background:#0a1830;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
+    .dash-dot{width:10px;height:10px;border-radius:50%}
+    .dash-bar-title{margin-left:8px;font-size:.65rem;color:var(--muted)}
+    .dash-body{padding:20px}
+    .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+    .dash-stat{background:#ffffff0a;border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+    .dash-stat.wide{grid-column:span 2}
+    .dash-stat-label{font-size:.62rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+    .dash-stat-value{font-size:1.5rem;font-weight:800}
+    .dash-stat-value.teal{color:var(--teal)}
+    .dash-stat-value.blue{color:var(--blue2)}
+    .dash-stat-sub{font-size:.62rem;color:var(--muted);margin-top:2px}
+    .dash-recs{background:#ffffff08;border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+    .dash-recs-title{font-size:.7rem;font-weight:600;margin-bottom:10px}
+    .dash-rec-item{display:flex;align-items:center;gap:8px;font-size:.68rem;color:var(--muted);margin-bottom:7px}
+    .dash-rec-item:before{content:"";width:14px;height:14px;background:#00c8b426;border-radius:50%;border:1px solid var(--teal);flex-shrink:0}
+    .dash-ai-label{font-size:.72rem;font-weight:700;color:var(--teal);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+    .dash-ai-label:before{content:"";width:6px;height:6px;background:var(--teal);border-radius:50%;animation:pulse 1.5s ease-in-out infinite}
+    @keyframes pulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+    .view-link{display:flex;align-items:center;gap:6px;font-size:.68rem;color:var(--teal);margin-top:10px;opacity:.8}
+
+    /* ----- Industries / testimonial bar ----- */
+    .trust-bar{border-top:1px solid var(--border);background:#ffffff05;padding:28px 60px;display:flex;align-items:center;gap:48px;flex-wrap:wrap}
+    .trust-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;max-width:100px;line-height:1.4}
+    .trust-divider{width:1px;height:40px;background:var(--border)}
+    .trust-industries{display:flex;gap:36px;flex:1;flex-wrap:wrap}
+    .trust-industry{display:flex;flex-direction:column;align-items:center;gap:7px;font-size:.68rem;color:var(--muted);transition:color .2s}
+    .trust-industry:hover{color:var(--text)}
+    .trust-industry svg{width:26px;height:26px;stroke:var(--muted);transition:stroke .2s}
+    .trust-industry:hover svg{stroke:var(--teal)}
+    .trust-quote{max-width:280px;background:#ffffff08;border-left:2px solid var(--teal);padding:12px 18px;border-radius:0 8px 8px 0}
+    .trust-quote p{font-size:.75rem;color:var(--muted);line-height:1.5;font-style:italic}
+    .trust-quote cite{font-size:.65rem;color:var(--teal);margin-top:6px;display:block;font-style:normal;font-weight:600}
+
+    /* ----- Entrance animations ----- */
+    @keyframes fadeUp{0%{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    .hero-content>*{animation:fadeUp .7s ease both}
+    .hero-eyebrow{animation-delay:.1s} h1{animation-delay:.2s} .hero-desc{animation-delay:.3s} .hero-ctas{animation-delay:.4s}
+    .hero-visual{animation:fadeUp .8s .3s ease both}
+
+    /* ----- Pop-up windows ----- */
+    .modal-overlay{display:none;position:fixed;z-index:999;inset:0;background:#050d1ad9;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+    .modal-overlay.show{display:flex;align-items:flex-start;justify-content:center;padding-top:8%}
+    .modal-content{background:linear-gradient(145deg,#0c1d38,#071326);padding:36px 36px 36px 60px;border-radius:16px;width:600px;max-width:92%;border:1px solid var(--border);box-shadow:0 50px 120px #000000b3;position:relative}
+    .examples-overlay.show{align-items:center;padding:24px;overflow-y:auto}
+    .examples-modal{position:relative;width:min(860px,100%);max-height:calc(100vh - 48px);overflow-y:auto;padding:24px;border:1px solid rgba(96,165,250,.35);border-radius:16px;background:linear-gradient(145deg,#0c1d38,#071326);box-shadow:0 30px 100px #000000a6,0 0 32px #2563eb1f}
+    .examples-modal-header{padding:2px 40px 16px 2px}
+    .examples-modal-header h2{font-size:1.7rem;font-weight:800;letter-spacing:-.04em}
+    .examples-document{display:block;width:100%;height:auto;border:1px solid rgba(96,165,250,.35);border-radius:10px;background:#fff}
+    .modal-close{position:absolute;top:18px;right:22px;font-size:1.4rem;cursor:pointer;color:var(--text);font-weight:700;background:none;border:none;line-height:1}
+    .modal-eyebrow{color:var(--teal);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+    .modal-header h2{font-size:2rem;margin-bottom:12px;font-weight:800;letter-spacing:-.04em}
+    .modal-sub{color:var(--muted);margin-bottom:30px;max-width:500px;line-height:1.6;font-size:.9rem}
+    .modal-steps{display:grid;gap:18px;margin-bottom:30px}
+    .step{display:flex;align-items:flex-start;gap:14px}
+    .step-number{width:32px;height:32px;border-radius:50%;background:#3b82f626;color:var(--teal);font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.9rem}
+    .step-number.icon{font-size:1rem}
+    .step-title{font-weight:700;margin-bottom:3px;font-size:.9rem}
+    .step-desc{color:var(--muted);line-height:1.5;font-size:.85rem}
+    .modal-footer{margin-top:25px}
+
+    /* ----- Tablet & phone layouts ----- */
+    @media (min-width:901px) and (max-width:1100px){
+      nav{padding:16px 24px} .logo{min-width:180px} .nav-links{gap:16px} .nav-links a{font-size:.78rem}
+      nav>.btn-primary{padding:10px 14px;font-size:.72rem}
+    }
+    @media (max-width:900px){
+      .top-section,.hero{grid-template-columns:1fr}
+      nav{padding:16px 24px} .nav-links{display:none}
+      .hero{padding:48px 24px;gap:40px} .trust-bar{padding:24px}
+      .card-panel{border-right:none;border-bottom:1px solid var(--border)}
+      .modal-content{padding:36px 24px}
+      .examples-overlay.show{padding:16px} .examples-modal{max-height:calc(100vh - 32px);padding:18px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= NAVIGATION ================= -->
+  <nav>
+    <div class="logo">
+      <img class="brand-logo-img" src="logo.jpg" alt="dAI Solutions">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a data-open="how-modal">How It Works</a></li>
+      <li><a data-open="examples-modal">Examples</a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScEiIfjP37LNHYT84ThYVTZ-VtY-pWTX-6yLJuo06PL9T5-aA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Take the AI Business Assessment</a></li>
+    </ul>
+    <button class="btn-primary" data-open="contact-modal">Schedule a Consultation</button>
+  </nav>
+
+  <!-- ================= BUSINESS CARD + 4 VALUE BOXES ================= -->
+  <div class="top-section">
+    <div class="card-panel">
+      <div class="biz-card">
+        <div class="biz-card-top">
+          <img class="biz-logo-img" src="logo.jpg" alt="dAI Solutions">
+        </div>
+        <div class="biz-name">Doug Goergen</div>
+        <div class="biz-title">CEO &amp; AI Process Consultant</div>
+        <div class="biz-contacts">
+          <div class="biz-contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 1.18 2 2 0 012.45 0h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.28-.83a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a class="plain" href="tel:+15072180785">(507) 218-0785</a>
+          </div>
+          <div class="biz-contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a class="plain" href="mailto:dAISolutionsDoug@gmail.com">dAISolutionsDoug@gmail.com</a>
+          </div>
+          <div class="biz-contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            <!-- CHANGE THIS to your new web address once you have your own domain -->
+            dAISolutions.replit.app
+          </div>
+          <div class="biz-contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Helping small businesses work smarter and save more.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="value-panel">
+      <div class="value-item">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div><div class="value-title">SAVE TIME</div><div class="value-desc">Eliminate inefficient steps and streamline workflows.</div></div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div><div class="value-title">SAVE MONEY</div><div class="value-desc">Reduce costs and improve operational efficiency.</div></div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div><div class="value-title">MAKE BETTER DECISIONS</div><div class="value-desc">AI-powered insights give you clarity and confidence.</div></div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div><div class="value-title">FOCUS ON GROWTH</div><div class="value-desc">Free up your team to do what drives your business.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HERO (headline + dashboard) ================= -->
+  <section class="hero">
+    <div class="hero-waves">
+      <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
+        <path d="M0 250 Q175 180 350 250 Q525 320 700 250 Q875 180 1050 250 Q1225 320 1400 250" fill="none" stroke="rgba(0,200,180,0.15)" stroke-width="2"/>
+        <path d="M0 280 Q175 210 350 280 Q525 350 700 280 Q875 210 1050 280 Q1225 350 1400 280" fill="none" stroke="rgba(45,212,247,0.1)" stroke-width="1.5"/>
+        <path d="M0 220 Q175 150 350 220 Q525 290 700 220 Q875 150 1050 220 Q1225 290 1400 220" fill="none" stroke="rgba(30,127,255,0.1)" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">AI-Powered Business Optimization</div>
+      <h1>Work Smarter.<br><span class="accent">Spend Less.</span></h1>
+      <p class="hero-desc">dAI Solutions helps small businesses turn inefficient processes into streamlined, AI-powered systems that save time, cut costs, and drive growth.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary" data-open="contact-modal">Schedule a Consultation →</button>
+        <button class="btn-primary" data-open="how-modal">See How It Works<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <button class="btn-primary" data-open="examples-modal">See Examples<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScEiIfjP37LNHYT84ThYVTZ-VtY-pWTX-6yLJuo06PL9T5-aA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Take the AI Business Assessment<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="dashboard-frame">
+        <div class="dash-bar">
+          <div class="dash-dot" style="background:#ff5f56"></div>
+          <div class="dash-dot" style="background:#ffbd2e"></div>
+          <div class="dash-dot" style="background:#27c93f"></div>
+          <span class="dash-bar-title">Workflow Analysis — dAI Solutions</span>
+        </div>
+        <div class="dash-body">
+          <div class="dash-ai-label">AI Impact Summary</div>
+          <div class="dash-grid">
+            <div class="dash-stat"><div class="dash-stat-label">Time Saved</div><div class="dash-stat-value teal">128</div><div class="dash-stat-sub">hours / month</div></div>
+            <div class="dash-stat"><div class="dash-stat-label">Cost Savings</div><div class="dash-stat-value blue">$24,500</div><div class="dash-stat-sub">per year</div></div>
+            <div class="dash-stat wide"><div class="dash-stat-label">Efficiency Increase</div><div class="dash-stat-value teal">37%</div><div class="dash-stat-sub">improvement</div></div>
+          </div>
+          <div class="dash-recs">
+            <div class="dash-recs-title">Recommendations</div>
+            <div class="dash-rec-item">Remove redundant approvals</div>
+            <div class="dash-rec-item">Automate data entry</div>
+            <div class="dash-rec-item">Standardize workflows</div>
+            <div class="dash-rec-item">Eliminate bottlenecks</div>
+            <div class="view-link">View Full Report →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INDUSTRIES + TESTIMONIAL ================= -->
+  <div class="trust-bar">
+    <div class="trust-label">Trusted by Small Businesses Across Many Industries</div>
+    <div class="trust-divider"></div>
+    <div class="trust-industries">
+      <div class="trust-industry"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>Professional Services</div>
+      <div class="trust-industry"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home Services</div>
+      <div class="trust-industry"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Manufacturing</div>
+      <div class="trust-industry"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.95-1.57l1.65-7.43H6"/></svg>Retail &amp; E-Commerce</div>
+      <div class="trust-industry"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Healthcare</div>
+    </div>
+    <div class="trust-quote">
+      <p>"dAI Solutions helped us streamline our processes and save 30+ hours every month. Game changer."</p>
+      <cite>– Terry Frost</cite>
+    </div>
+  </div>
+
+  <!-- ================= POP-UP: SCHEDULE A CONSULTATION ================= -->
+  <div class="modal-overlay" id="contact-modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="modal-eyebrow">Schedule a Consultation</div>
+        <h2>Let's Talk</h2>
+        <p class="modal-sub">Reach out anytime to schedule your free discovery call.</p>
+      </div>
+      <div class="modal-steps">
+        <div class="step">
+          <div class="step-number icon">☎</div>
+          <div><div class="step-title">Phone</div><div class="step-desc"><a class="plain" href="tel:+15072180785">(507) 218-0785</a></div></div>
+        </div>
+        <div class="step">
+          <div class="step-number icon">@</div>
+          <div><div class="step-title">Email</div><div class="step-desc"><a class="plain" href="mailto:dAISolutionsDoug@gmail.com">dAISolutionsDoug@gmail.com</a></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= POP-UP: HOW IT WORKS ================= -->
+  <div class="modal-overlay" id="how-modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="modal-eyebrow">Simple. Proven. Fast.</div>
+        <h2>How dAI Works</h2>
+        <p class="modal-sub">We turn inefficiencies into measurable savings using AI-driven process optimization. Steps 1 &amp; 2 are completely FREE so you have nothing to lose! If we don't find any improvements you pay nothing.</p>
+      </div>
+      <div class="modal-steps">
+        <div class="step"><div class="step-number">1</div><div><div class="step-title">Discovery</div><div class="step-desc">We identify cost savings and automation opportunities.</div></div></div>
+        <div class="step"><div class="step-number">2</div><div><div class="step-title">Build</div><div class="step-desc">We create your AI Agent.</div></div></div>
+        <div class="step"><div class="step-number">3</div><div><div class="step-title">Results</div><div class="step-desc">You try it, keep and pay only if you see a benefit.</div></div></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary" data-open="contact-modal">Schedule a Consultation</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= POP-UP: EXAMPLES ================= -->
+  <div class="modal-overlay examples-overlay" id="examples-modal">
+    <section class="examples-modal" role="dialog" aria-modal="true" aria-labelledby="examples-title">
+      <button class="modal-close" aria-label="Close examples">×</button>
+      <div class="examples-modal-header">
+        <div class="modal-eyebrow">Practical AI at Work</div>
+        <h2 id="examples-title">Examples</h2>
+      </div>
+      <img class="examples-document" src="examples.png" alt="Four practical ways AI can help: drafting quotes, sorting an inbox, moving information without retyping, and writing reports.">
+    </section>
+  </div>
+
+  <!-- Opens and closes the pop-ups. No editing needed. -->
+  <script>
+    function closeAll() {
+      document.querySelectorAll('.modal-overlay.show').forEach(function (m) { m.classList.remove('show'); });
+    }
+    document.querySelectorAll('[data-open]').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        closeAll();
+        document.getElementById(el.getAttribute('data-open')).classList.add('show');
+      });
+    });
+    document.querySelectorAll('.modal-overlay').forEach(function (overlay) {
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) closeAll(); });
+    });
+    document.querySelectorAll('.modal-close').forEach(function (btn) { btn.addEventListener('click', closeAll); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+  </script>
+</body>
+</html>
